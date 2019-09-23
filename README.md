@@ -1,2 +1,2 @@
-# The_GAP
-#Authors: Raj Shah and Peter Ye
+# The GAP
+Authors: Raj Shah and Peter Ye
