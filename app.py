@@ -58,6 +58,7 @@ class Survey(Resource):
 
 api.add_resource(UserList, '/users')
 api.add_resource(Survey, '/items/<int:eid>/<int:ifneed>/<int:supervisee_id>')
+api.add_resource(Graph, '/graph')
 
 if __name__ == '__main__':
     app.run(debug=True)  # important to mention debug=True
