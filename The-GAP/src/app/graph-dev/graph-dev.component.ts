@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { HttpService } from '../http.service';
 import { Component } from '@angular/core';
 import * as  Highcharts from 'highcharts';
+import * as percentile from 'percentile';
 import More from 'highcharts/highcharts-more';
 More(Highcharts);
 import Tree from 'highcharts/modules/treemap';
@@ -111,7 +112,7 @@ export class GraphDevComponent implements OnInit {
       temp.push(data_list[i].value);
     }
     temp = temp.sort();
-
+    console.log(percentile(90, temp));
     this.per_90 = temp[Math.floor(0.90 * temp.length)];
     this.per_75 = temp[Math.floor(0.75 * temp.length)];
     this.per_25 = temp[Math.floor(0.25 * temp.length)];
