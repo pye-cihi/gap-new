@@ -21,12 +21,12 @@ Exporting(Highcharts);
   styleUrls: ['./graph-branch.component.css']
 })
 export class GraphBranchComponent implements OnInit {
-  public org_data = []
-  public graph_data = []
-  public cat = []
+  public org_data = [];
+  public graph_data = [];
+  public cat = [];
   public ifcatselected = false;
   public ifskillselected = false;
-  public skill_data = []
+  public skill_data = [];
   private per_90 = 0;
   private per_75 = 0;
   private per_25 = 0;
@@ -52,8 +52,8 @@ export class GraphBranchComponent implements OnInit {
         else {
           this.calculate_GAP(this.org_data, changeVal, changeID);
         }
-        console.log(this.graph_data)
-        console.log(this.org_data)
+        console.log(this.graph_data);
+        console.log(this.org_data);
 
         var chart = Highcharts.chart('container', {
           plotOptions: {
@@ -99,7 +99,7 @@ export class GraphBranchComponent implements OnInit {
         if (temp_name != data_list[i].name) {
           var temp_dic = { 'id': data_list[i].id, 'name': data_list[i].name };
           this.skill_data.push(temp_dic);
-          temp_name = data_list[i].name
+          temp_name = data_list[i].name;
         }
       }
 
