@@ -1,0 +1,98 @@
+.hold {
+    height: 80px;
+  }
+  
+  .header {
+    line-height: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 100%;
+    transition: line-height 0.2s linear, box-shadow 0.2s linear;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: rgba(245, 245, 245, 0.97);
+  }
+  
+  .header.small {
+    line-height: 50px;
+    box-shadow: 0px 1px 3px 0px rgba(50, 50, 50, 0.8);
+  }
+  
+  .header.small > .container > #logo {
+    height: 40px;
+  }
+  
+  #logo {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    float: left;
+    height: 40px;
+    width: 170px;
+    margin-left: 5px;
+  }
+  
+  ul.nav {
+    float: right;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  ul.nav li {
+    float: left;
+    position: relative;
+  }
+  
+  ul.nav li a {
+    transition: color 0.2s linear;
+    font-size: 18px;
+  }
+  
+  ul.nav li:hover a {
+    color: #00A199;
+  }
+
+  ul.nav ul {
+    display: none;
+	position: absolute; 
+   
+    background: rgba(245, 245, 245, 0.97);
+  }
+
+  ul.nav li:hover > ul {
+    display:inherit;
+    width:180px;
+  }
+
+  ul.nav li:hover > ul a {
+    color: #337ab7;
+  }
+
+  ul.nav li:hover > ul a:hover {
+    color: #00A199;
+  }
+
+  
+  ul.nav li a mat-label {
+    padding: 21px;
+    color: initial;
+    text-decoration: initial;
+  }
+
+  nav {
+	margin: 50px 0;
+	background-color: #E64A19;
+}
+
+/* Hide Dropdowns by Default */
+
+	
+/* Display Dropdowns on Hover */
+	
+/* Fisrt Tier Dropdown */
+	
+/* Change this in order to change the Dropdown symbol */
+li > a:after { content:  ' +'; }
+li > a:only-child:after { content: ''; }

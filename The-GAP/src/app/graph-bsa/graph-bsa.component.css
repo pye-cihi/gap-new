@@ -1,0 +1,47 @@
+p {
+    font-family: Lato;
+}
+  
+  section {
+    width: 90%;
+    height: 650px;
+    margin: auto;
+    padding: 5px;
+}
+div#container {
+    width: 70%;
+    height: 600px;
+    float: left;
+}
+div#sidebar {
+    margin-top: 200px;
+    margin-left: 50px;
+    height: 200px;
+}
+div.box {
+    width: 40px;
+    height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+span.explanation {
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+#dark_green {
+    background-color: #96281B;
+}
+
+#light_green {
+    background-color: #ED5440;
+}
+
+#dark_red {
+    background-color: #8c982c;
+}
+
+#light_orange {
+    background-color: #81B9B4;
+}

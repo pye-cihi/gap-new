@@ -1,0 +1,46 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div style="text-align:right">
+  <button mat-raised-button color="primary" (click)="onCancel()">Cancel and Go Back</button>
+</div>
+
+<div *ngIf="isLoading">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit(survey)" #survey="ngForm" *ngIf="!isLoading">
+    <hr>
+    <div formGroupName="type">
+      <mat-vertical-stepper formArrayName="options" appMatVerticalStepperScroller>
+        <mat-step *ngFor="let child of getControls(); let i = index" >
+          <ng-template matStepLabel>{{child['controls'].catname.value}}</ng-template>
+          <div [formGroupName]="i">
+            <div formArrayName="skill">
+              <div *ngFor="let son of child['controls'].skill['controls']; let j = index">
+                <div class="skillstyle" [formGroupName]="j" [matTooltip]="son['controls'].desc.value" matTooltipPosition="right">
+                  {{son['controls'].skillname.value}}<br>
+                  <mat-slider
+                  [tickInterval]="sd.tickInterval"
+                  [max]="sd.max"
+                  [min]="sd.min"
+                  [thumbLabel]="sd.thumbLabel"
+                  formControlName="score"
+                  ></mat-slider>
+                  {{son['controls'].score.value}}
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Enable or Disable the "next" and "back" buttons -->
+          <div>
+            <button mat-flat-button color="primary" type="button" mat-button matStepperPrevious *ngIf="i!=0">Back</button>
+            {{" "}}
+            <button mat-flat-button color="primary" type="button" mat-button matStepperNext *ngIf="i!=getControls().length-1">Next</button>
+          </div>
+        </mat-step>
+      </mat-vertical-stepper>
+    </div>
+    <button class="btn btn-success" type="submit">Submit</button>
+  </form>
+  <br>
+  <!-- <pre>{{userForm.value | json }}</pre> -->
