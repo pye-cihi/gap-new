@@ -112,12 +112,16 @@ export class GraphDevComponent implements OnInit {
       temp.push(data_list[i].value);
     }
     temp = temp.sort();
-    console.log(percentile(90, temp));
-    this.per_90 = temp[Math.floor(0.90 * temp.length)];
-    this.per_75 = temp[Math.floor(0.75 * temp.length)];
-    this.per_25 = temp[Math.floor(0.25 * temp.length)];
-    this.per_16 = temp[Math.floor(0.16 * temp.length)];
 
+    // this.per_90 = temp[Math.floor(0.90 * temp.length)];
+    // this.per_75 = temp[Math.floor(0.75 * temp.length)];
+    // this.per_25 = temp[Math.floor(0.25 * temp.length)];
+    // this.per_16 = temp[Math.floor(0.16 * temp.length)];
+
+    this.per_90 = percentile(90, temp);
+    this.per_75 = percentile(75, temp);
+    this.per_25 = percentile(25, temp);
+    this.per_16 = percentile(16, temp);
 
   }
 

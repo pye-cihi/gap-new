@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { HttpService } from '../http.service';
 import { Component } from '@angular/core';
 import * as  Highcharts from 'highcharts';
+import * as percentile from 'percentile';
 import More from 'highcharts/highcharts-more';
 More(Highcharts);
 import Tree from 'highcharts/modules/treemap';
@@ -112,10 +113,15 @@ export class GraphBsaComponent implements OnInit {
     }
     temp = temp.sort();
 
-    this.per_90 = temp[Math.floor(0.90 * temp.length)];
-    this.per_75 = temp[Math.floor(0.75 * temp.length)];
-    this.per_25 = temp[Math.floor(0.25 * temp.length)];
-    this.per_16 = temp[Math.floor(0.16 * temp.length)];
+    // this.per_90 = temp[Math.floor(0.90 * temp.length)];
+    // this.per_75 = temp[Math.floor(0.75 * temp.length)];
+    // this.per_25 = temp[Math.floor(0.25 * temp.length)];
+    // this.per_16 = temp[Math.floor(0.16 * temp.length)];
+
+    this.per_90 = percentile(90, temp);
+    this.per_75 = percentile(75, temp);
+    this.per_25 = percentile(25, temp);
+    this.per_16 = percentile(16, temp);
 
   }
 
