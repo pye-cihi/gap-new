@@ -1,37 +1,34 @@
 <!-- optimization when you have time:
 when user submit and go back to the frontpage,
 all pre info should be auto selecte -->
-
-<div id="outPopUp">
-  <div *ngIf="isLoading">
-    <app-loading-spinner></app-loading-spinner>
-  </div>
-  <form (ngSubmit)="onSubmit(userinfo)" #userinfo="ngForm" *ngIf="!isLoading">
-    <mat-form-field>
-      <mat-label>Please find your name</mat-label>
-      <mat-select name="supervisor" (selectionChange)="onSelectSup($event)" [(ngModel)]="supervisordefault">
-        <mat-option *ngFor="let p of supervisors" [value]="p.eid">
-          {{ p.name }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <br>
-    <mat-radio-group [(ngModel)]="usages" name="use" *ngIf="ifsupervisor">
-      <mat-radio-button value="0">Enter a skill score for myself</mat-radio-button>
-      <br>
-      <mat-radio-button value="1">Enter a need score for my team members</mat-radio-button>
-    </mat-radio-group>
-    <br>
-    <mat-form-field *ngIf="ifseniorsupervisor && usages > 0">
-      <mat-label>Find your employee</mat-label>
-      <mat-select name="supervisee" [(ngModel)]="superviseedefault">
-        <mat-option *ngFor="let e of supervisees" [value]="e.eid">
-          {{ e.name }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <br>
-    <button mat-raised-button color="primary" type="submit">Start Assessment</button>
-  </form>
+<div *ngIf="isLoading">
+  <app-loading-spinner></app-loading-spinner>
 </div>
+<form (ngSubmit)="onSubmit(userinfo)" #userinfo="ngForm" *ngIf="!isLoading">
+  <mat-form-field>
+    <mat-label>Please find your name</mat-label>
+    <mat-select name="supervisor" (selectionChange)="onSelectSup($event)" [(ngModel)]="supervisordefault">
+      <mat-option *ngFor="let p of supervisors" [value]="p.eid">
+        {{ p.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-radio-group [(ngModel)]="usages" name="use" *ngIf="ifsupervisor">
+    <mat-radio-button value="0">Enter a skill score for myself</mat-radio-button>
+    <br>
+    <mat-radio-button value="1">Enter a need score for my team members</mat-radio-button>
+  </mat-radio-group>
+  <br>
+  <mat-form-field *ngIf="ifseniorsupervisor && usages > 0">
+    <mat-label>Find your employee</mat-label>
+    <mat-select name="supervisee" [(ngModel)]="superviseedefault">
+      <mat-option *ngFor="let e of supervisees" [value]="e.eid">
+        {{ e.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <button mat-raised-button color="primary" type="submit">Start Assessment</button>
+</form>
 <!-- <pre>{{userinfo.value | json }}</pre> -->
