@@ -23,10 +23,11 @@ div.box {
     height: 30px;
     display: inline-block;
     vertical-align: middle;
+    margin-left: 10%;
 }
 
 span.explanation {
-    margin-left: 10px;
+    margin-left: 20px;
     vertical-align: middle;
 }
 
@@ -44,4 +45,9 @@ span.explanation {
 
 #light_orange {
     background-color: #81B9B4;
+}
+
+#left {
+    text-align: left;
+   
 }

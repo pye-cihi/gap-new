@@ -3,6 +3,16 @@ mat-label, mat-option, button, mat-radio-button {
     font-size: 15px;
 }
 
+ #left {
+    margin-left:45%;
+    text-align:left;
+    width:300px;
+ }
+
+
   mat-select, mat-option {
       width:200px;
+  }
+  #left button {
+      align-content: center;
   }
