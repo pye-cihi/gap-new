@@ -8,15 +8,15 @@ all pre info should be auto selecte -->
   <form (ngSubmit)="onSubmit(userinfo)" #userinfo="ngForm" *ngIf="!isLoading">
     <mat-form-field>
       <mat-label>Please find your name</mat-label>
-      <mat-select name="supervisor" (selectionChange)="onSelectSup($event)" [(ngModel)]="supervisordefault">
-        <mat-option *ngFor="let p of supervisors" [value]="p.eid">
+      <mat-select name="supervisor" (selectionChange)="onSelectSup($event)" [(ngModel)]="supervisordefault" required>
+        <mat-option *ngFor="let p of supervisors" [value]="p.eid" [disabled]="p.eid === 73">
           {{ p.name }}
         </mat-option>
       </mat-select>
     </mat-form-field>
     <br>
 
-    <mat-radio-group [(ngModel)]="usages" name="use" *ngIf="ifsupervisor">
+    <mat-radio-group [(ngModel)]="usages" name="use" *ngIf="ifsupervisor" required>
       <mat-radio-button value="0">Enter a skill score for myself</mat-radio-button>
       <br>
       <mat-radio-button value="1">Enter a need score for my team members</mat-radio-button>
@@ -25,14 +25,14 @@ all pre info should be auto selecte -->
     <br>
     <mat-form-field *ngIf="ifseniorsupervisor && usages > 0">
       <mat-label>Find your employee</mat-label>
-      <mat-select name="supervisee" [(ngModel)]="superviseedefault">
+      <mat-select name="supervisee" [(ngModel)]="superviseedefault" required>
         <mat-option *ngFor="let e of supervisees" [value]="e.eid">
           {{ e.name }}
         </mat-option>
       </mat-select>
     </mat-form-field>
     <br>
-    <button mat-raised-button color="primary" type="submit">Start Assessment</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!userinfo.valid">Start Assessment</button>
   </form>
 </div>
 <!-- <pre>{{userinfo.value | json }}</pre> -->

@@ -71,14 +71,19 @@ def get_skills_and_existing_scores(eid, ifneed, supervisee_id):
 
 
 # # this function will PUT/UPDATE the skills and the updated scores to the database
-def update_scores(eid, ifneed, supervisee_id, skills_scores):  # skills_scores is a list of Dic: same as Category in the exmaple data
+def update_scores(eid, ifneed, supervisee_id, skills_scores):  # skills_scores is a list of Dic: same as Category in the exmaple data   
     skills = []
     skills_revert = []
-    for cat in skills_scores:
-        for skill in cat['skill']:
-            skills.append((skill['skillid'],skill['score']))
-            skills_revert.append((skill['score'],skill['skillid']))
+    for i in skills_scores:
+        skills.append((i[0], i[1]))
+        skills_revert.append((i[1], i[0]))
+    # for cat in skills_scores:
+    #     for skill in cat['skill']:
+    #         skills.append((skill['skillid'],skill['score']))
+    #         skills_revert.append((skill['score'],skill['skillid']))
+    print(skills)
     # skills = [(1, 0), (2, 1), (3, 2), (4, 3), (5, 0), (6, 4), (7, 5), (8, 4), (9, 5)]
+    print(skills_revert)
     
     if ifneed == 0: # Post to Skill Table
         """ Connect to MySQL database """

@@ -41,8 +41,11 @@ export class SurveyinputComponent implements OnInit {
     this.isLoading = true;
     const value = form.value['type']['options'];
     console.log(value);
+    const dataextracted = this.extractInfoData(value);
+    console.log(dataextracted);
     // console.log(this.userForm.value.type);
-    this.htps.sendSurveydata(value).subscribe(
+    // this.htps.sendSurveydata(value).subscribe(
+    this.htps.sendSurveydata(dataextracted).subscribe(
       data => {
         console.log(data);
         this.router.navigateByUrl('/userinfo');
@@ -88,5 +91,15 @@ export class SurveyinputComponent implements OnInit {
 
   onCancel() {
     this.router.navigateByUrl('/userinfo');
+  }
+
+  extractInfoData(value) {
+    const skills = [];
+    for (const cat of value) {
+      for (const skill of cat['skill']) {
+        skills.push([skill['skillid'], skill['score']]);
+      }
+    }
+    return skills;
   }
 }

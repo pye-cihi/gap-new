@@ -36,7 +36,7 @@
         </mat-step>
       </mat-vertical-stepper>
     </div>
-    <button class="btn btn-success" type="submit">Submit</button>
+    <button class="btn btn-success" type="submit" [disabled]="fields.length === 0">Submit</button>
   </form>
   <br>
   <!-- <pre>{{userForm.value | json }}</pre> -->
