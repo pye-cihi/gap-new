@@ -37,7 +37,7 @@ export class SurveyinputComponent implements OnInit {
     this.isLoading = false;
   }
 
-  onSubmit(form: NgForm) {
+  onSubmit(form) {
     this.isLoading = true;
     const value = form.value['type']['options'];
     console.log(value);
