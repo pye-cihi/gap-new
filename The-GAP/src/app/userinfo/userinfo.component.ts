@@ -23,7 +23,6 @@ export class UserinfoComponent implements OnInit {
   supervisors: [];
   supervisees: [];
   ifsupervisor = false;
-  ifseniorsupervisor = false;
   supervisor: any;
   temp = [];
 
@@ -55,7 +54,6 @@ export class UserinfoComponent implements OnInit {
       this.supervisors = this.uis.supervisors;
       this.supervisees = this.uis.supervisees;
       this.ifsupervisor = this.uis.ifsupervisor;
-      this.ifseniorsupervisor = this.uis.ifseniorsupervisor;
 
       this.isLoading = false;
     }
@@ -84,8 +82,6 @@ export class UserinfoComponent implements OnInit {
     this.uis.supervisors = this.supervisors;
     this.uis.supervisees = this.supervisees;
     this.uis.ifsupervisor = this.ifsupervisor;
-    this.uis.ifseniorsupervisor = this.ifseniorsupervisor;
-
 
     //  I am sending data to back end and getting data back     ---Start
     this.htps.getSurveydata(temp_value).subscribe(
@@ -116,12 +112,9 @@ export class UserinfoComponent implements OnInit {
 
     if (this.supervisor.rid > 2) {
       this.ifsupervisor = true;
-    } else { this.ifsupervisor = false; }
-
-    if (this.supervisor.rid > 3) {
       this.supervisees = this.supervisor.supervisee;
       this.supervisees.sort((a: any, b: any) => a.name.localeCompare(b.name));
-      this.ifseniorsupervisor = true;
-    } else { this.ifseniorsupervisor = false; }
+    } else { this.ifsupervisor = false; }
+
   }
 }

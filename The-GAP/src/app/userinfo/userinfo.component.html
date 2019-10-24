@@ -23,7 +23,7 @@ all pre info should be auto selecte -->
     </mat-radio-group>
 
     <br>
-    <mat-form-field *ngIf="ifseniorsupervisor && usages > 0">
+    <mat-form-field *ngIf="usages > 0">
       <mat-label>Find your employee</mat-label>
       <mat-select name="supervisee" [(ngModel)]="superviseedefault" required>
         <mat-option *ngFor="let e of supervisees" [value]="e.eid">

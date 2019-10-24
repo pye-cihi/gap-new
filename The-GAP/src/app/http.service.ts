@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 export class HttpService {
 
     baseUrl = 'http://127.0.0.1:5000/';
+    // baseUrl = 'http://172.31.19.71/nginx/';
     temp_parameter = '/0/0/0';
 
     constructor(private http: HttpClient) {}
