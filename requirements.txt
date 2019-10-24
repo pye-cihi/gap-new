@@ -1,0 +1,6 @@
+Flask
+Flask-RESTful
+Flask-JWT
+flask-cors
+mysql-connector-python
+gunicorn
