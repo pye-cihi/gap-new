@@ -3,4 +3,7 @@ Flask-RESTful
 Flask-JWT
 flask-cors
 mysql-connector-python
+Flask-SQLAlchemy
+pymysql
 gunicorn
+
